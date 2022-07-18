@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,11 +28,13 @@ public class App
 
             Item newItem = new Item("PC 2", person);
 
-            // если обращений к базе данных с этим объектом нет и избежать ошибок,
-            // необходимо вручную обновлять кэш
-            person.getItemList().add(newItem);
+            person.setItemList(new ArrayList<Item>(Collections.singletonList(newItem)));
+
+            //без каскадирования необходимо сохранять все созданные объекты
 
             session.save(newItem);
+
+            session.save(person);
 
             session.getTransaction().commit();
         }finally {

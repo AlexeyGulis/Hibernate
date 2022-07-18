@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dc8b1d3-b7a3-4b10-bbc0-1abe027e4570" name="Changes" comment="lesson 50">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3dc8b1d3-b7a3-4b10-bbc0-1abe027e4570" name="Changes" comment="lesson 51">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657881831351</updated>
       <workItem from="1657881833636" duration="4114000" />
-      <workItem from="1658125946375" duration="4770000" />
+      <workItem from="1658125946375" duration="5080000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 50">
       <created>1658144640047</created>
@@ -85,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658144640047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lesson 51">
+      <created>1658146279280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658146279280</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +108,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 50" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 50" />
+    <MESSAGE value="lesson 51" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 51" />
   </component>
 </project>
