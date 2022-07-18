@@ -24,17 +24,12 @@ public class App
         try{
             session.beginTransaction();
 
-            Person person = new Person("Phil", 23);
+            Person person = session.get(Person.class,1);
 
-            Item newItem = new Item("PC 2", person);
-
-            person.setItemList(new ArrayList<Item>(Collections.singletonList(newItem)));
-
-            //без каскадирования необходимо сохранять все созданные объекты
-
-            session.save(newItem);
-
-            session.save(person);
+            Item item = session.get(Item.class,7);
+            item.getOwner().getItemList().remove(item);
+            item.setOwner(person);
+            person.getItemList().add(item);
 
             session.getTransaction().commit();
         }finally {
