@@ -4,26 +4,29 @@ package org.example.model;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Person")
 public class Person {
-
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_generator_person")
-    @SequenceGenerator(name = "seq_generator_person",sequenceName = "person_id_seq",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "age")
     private int age;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> itemList;
 
     public Person() {
     }
 
     public Person(String name, int age) {
-        this.id = id;
         this.name = name;
         this.age = age;
     }
@@ -52,10 +55,20 @@ public class Person {
         this.age = age;
     }
 
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
+    }
+
     @Override
     public String toString() {
-        return "Name = " + name + ' ' +
-                ", age = " + age +
-                ';';
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
