@@ -3,26 +3,27 @@ package org.example.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Item")
-public class Item {
+@Table(name = "Movie")
+public class Movie {
     @Id
-    @Column(name = "id")
+    @Column(name = "movie_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "item_name")
+    @Column(name = "name")
     private String name;
+    @Column(name = "year_of_production")
+    private int year;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
-    private Person owner;
+    @JoinColumn(name = "director_id",referencedColumnName = "director_id")
+    private Director owner;
 
-    public Item() {
+    public Movie() {
     }
 
-    public Item(String name, Person owner) {
+    public Movie(String name, int year) {
         this.name = name;
-        this.owner = owner;
+        this.year = year;
     }
 
     public int getId() {
@@ -41,22 +42,29 @@ public class Item {
         this.name = name;
     }
 
-    public Person getOwner() {
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public Director getOwner() {
         return owner;
     }
 
-    public void setOwner(Person owner) {
+    public void setOwner(Director owner) {
         this.owner = owner;
     }
 
-
     @Override
     public String toString() {
-        return "Item{" +
+        return "Movie{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", year=" + year +
                 ", owner=" + owner +
                 '}';
     }
-
 }
