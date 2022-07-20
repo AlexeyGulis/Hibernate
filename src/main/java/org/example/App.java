@@ -20,18 +20,19 @@ public class App
 {
     public static void main( String[] args )
     {
-        Configuration configuration = new Configuration().addAnnotatedClass(Director.class).addAnnotatedClass(Movie.class);
+        Configuration configuration = new Configuration().addAnnotatedClass(Person.class).addAnnotatedClass(Item.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try{
             session.beginTransaction();
 
-            Movie movie = session.get(Movie.class,13);
-            System.out.println(movie.getOwner().getMovieList());
-            movie.getOwner().getMovieList().remove(movie);
-            System.out.println(movie.getOwner().getMovieList());
-            movie.setOwner(null);
-            session.remove(movie);
+            Person p = new Person("Alex", 20);
+            p.addItem(new Item("Item 1"));
+            p.addItem(new Item("Item 2"));
+            p.addItem(new Item("Item 3"));
+
+            session.save(p);
+
             session.getTransaction().commit();
         }finally {
             session.close();

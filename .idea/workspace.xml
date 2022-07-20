@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dc8b1d3-b7a3-4b10-bbc0-1abe027e4570" name="Changes" comment="lesson 51">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Director.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Movie.java" afterDir="false" />
+    <list default="true" id="3dc8b1d3-b7a3-4b10-bbc0-1abe027e4570" name="Changes" comment="lesson 51 independent work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,8 @@
       <workItem from="1658125946375" duration="7052000" />
       <workItem from="1658148434085" duration="1543000" />
       <workItem from="1658153481749" duration="510000" />
-      <workItem from="1658212664540" duration="2670000" />
+      <workItem from="1658212664540" duration="6208000" />
+      <workItem from="1658302313123" duration="794000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 50">
       <created>1658144640047</created>
@@ -110,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658147147483</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lesson 51 independent work">
+      <created>1658229846962</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658229846962</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 50" />
     <MESSAGE value="lesson 51" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 51" />
+    <MESSAGE value="lesson 51 independent work" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 51 independent work" />
   </component>
 </project>

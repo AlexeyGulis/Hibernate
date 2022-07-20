@@ -2,8 +2,10 @@ package org.example.model;
 
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,6 +23,7 @@ public class Person {
     private int age;
 
     @OneToMany(mappedBy = "owner")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<Item> itemList;
 
     public Person() {
@@ -61,6 +64,14 @@ public class Person {
 
     public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
+    }
+
+    public void addItem(Item item){
+        if(this.itemList == null){
+            this.itemList = new ArrayList<>();
+        }
+        itemList.add(item);
+        item.setOwner(this);
     }
 
     @Override
