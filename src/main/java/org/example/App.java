@@ -17,18 +17,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        Configuration configuration = new Configuration().addAnnotatedClass(Person.class).addAnnotatedClass(Passport.class);
+        Configuration configuration = new Configuration().addAnnotatedClass(Principal.class).addAnnotatedClass(School.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try{
             session.beginTransaction();
 
-            Person person = new Person("Person", 25);
-            Passport passport = new Passport(123456);
+            Principal principal = session.get(Principal.class, 1);
+            School school = new School(5);
+            session.save(school);
 
-            person.setPassport(passport);
-
-            session.save(person);
+            school.setPrincipal(principal);
 
             session.getTransaction().commit();
         }finally {
