@@ -17,21 +17,21 @@ public class App
 {
     public static void main( String[] args )
     {
-        Configuration configuration = new Configuration().addAnnotatedClass(Principal.class).addAnnotatedClass(School.class);
+        Configuration configuration = new Configuration().addAnnotatedClass(Actor.class).addAnnotatedClass(Movie.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        try{
+
+        try(sessionFactory){
+            Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            Principal principal = session.get(Principal.class, 1);
-            School school = new School(5);
-            session.save(school);
+            Actor actor = session.get(Actor.class, 2);
+            Movie movie = actor.getMovieList().get(0);
 
-            school.setPrincipal(principal);
+            actor.getMovieList().remove(0);
+
+            movie.getActorList().remove(actor);
 
             session.getTransaction().commit();
-        }finally {
-            session.close();
         }
     }
 }

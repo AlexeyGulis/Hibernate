@@ -4,26 +4,29 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Movie")
-public class Movie {
+@Table(name = "Actor")
+public class Actor {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "year_of_production")
-    private int year;
+    @Column(name = "age")
+    private int age;
 
-    @ManyToMany(mappedBy = "movieList")
-    private List<Actor> actorList;
+    @ManyToMany
+    @JoinTable(name = "Actor_Movie",
+    joinColumns = @JoinColumn(name = "actor_id"),
+    inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    private List<Movie> movieList;
 
-    public Movie() {
+    public Actor() {
     }
 
-    public Movie(String name, int year) {
+    public Actor(String name, int age) {
         this.name = name;
-        this.year = year;
+        this.age = age;
     }
 
     public int getId() {
@@ -42,20 +45,20 @@ public class Movie {
         this.name = name;
     }
 
-    public int getYear() {
-        return year;
+    public int getAge() {
+        return age;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public List<Actor> getActorList() {
-        return actorList;
+    public List<Movie> getMovieList() {
+        return movieList;
     }
 
-    public void setActorList(List<Actor> actorList) {
-        this.actorList = actorList;
+    public void setMovieList(List<Movie> movieList) {
+        this.movieList = movieList;
     }
 
     @Override
@@ -63,27 +66,26 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Movie movie = (Movie) o;
+        Actor actor = (Actor) o;
 
-        if (id != movie.id) return false;
-        if (year != movie.year) return false;
-        return name.equals(movie.name);
+        if (id != actor.id) return false;
+        if (age != actor.age) return false;
+        return name.equals(actor.name);
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + name.hashCode();
-        result = 31 * result + year;
+        result = 31 * result + age;
         return result;
     }
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", year=" + year +
+        return "Actor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
                 '}';
     }
 }
