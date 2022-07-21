@@ -10,10 +10,10 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "item_name")
+    @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person owner;
 
@@ -52,9 +52,7 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", owner=" + owner +
+                ", name='" + name +
                 '}';
     }
 

@@ -17,19 +17,16 @@ public class App
 {
     public static void main( String[] args )
     {
-        Configuration configuration = new Configuration().addAnnotatedClass(Actor.class).addAnnotatedClass(Movie.class);
+        Configuration configuration = new Configuration().addAnnotatedClass(Person.class).addAnnotatedClass(Item.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
         try(sessionFactory){
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            Actor actor = session.get(Actor.class, 2);
-            Movie movie = actor.getMovieList().get(0);
-
-            actor.getMovieList().remove(0);
-
-            movie.getActorList().remove(actor);
+            Person person = session.get(Person.class,2);
+            System.out.println("Hi");
+            System.out.println(person.getItemList());
 
             session.getTransaction().commit();
         }
